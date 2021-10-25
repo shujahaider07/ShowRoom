@@ -22,6 +22,7 @@ namespace Cars
 
         private void registrationDetail_Load(object sender, EventArgs e)
         {
+          
 
             textBox1.Text = registration.name;
 
@@ -78,7 +79,7 @@ namespace Cars
            
 
             DataGridViewLinkColumn Editlink = new DataGridViewLinkColumn();
-        Editlink.UseColumnTextForLinkValue = true;
+            Editlink.UseColumnTextForLinkValue = true;
             Editlink.HeaderText = "Edit";
             Editlink.DataPropertyName = "lnkColumn";
             Editlink.LinkBehavior = LinkBehavior.SystemDefault;
@@ -86,11 +87,9 @@ namespace Cars
             Editlink.Name = "Edit";
             dataGridView1.Columns.Add(Editlink);
 
-            //Delete link
-
-            //Delete link
+            
             DataGridViewLinkColumn Delete = new DataGridViewLinkColumn();
-           Delete.UseColumnTextForLinkValue = true;
+            Delete.UseColumnTextForLinkValue = true;
             Delete.HeaderText = "Delete";
             Delete.DataPropertyName = "Delete";
             Delete.LinkBehavior = LinkBehavior.SystemDefault;
@@ -104,14 +103,46 @@ namespace Cars
         
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex==dataGridView1.Columns["Edit"].Index)
+                registration r1 = new registration();
+                r1.Show();
+                dataGridView1.CurrentRow.Selected = true;
+                value1 = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                value1 = dataGridView1.Rows[e.RowIndex].Cells["CarNamee"].Value.ToString();
+
+          
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].HeaderText == "Edit")
             {
+               
+                cars.text1 = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                cars.text2 = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                cars.text3 = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                cars.text4 = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                cars.text5 = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                cars.text6 = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                cars.text7 = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                cars.text8 = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                cars.text9 = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                cars.text10 = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+                registration r = new registration();
+                r.Show();
+                sql.Open();
+                String qry = "update registration set name = '" + cars.text1 + "', Nic = '" + cars.text2 + "',Chassisno = '" + cars.text3 + "', Engineno '"+cars.text4+"',bookingdate = '"+cars.text5+"'delivery = '"+cars.text6+"' , advance = '"+cars.text7+"',remainingamount = '"+cars.text8+"',carname = ''"+cars.text9+",totalamount = '"+cars.text10+ "' where nic ='" + cars.text2 + "'";
+                SqlCommand cmd = new SqlCommand(qry,sql);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("RECORD UPDATED!");
                 
-                
-                
+
+                sql.Close();
+
+
 
             }
-
         }
+
+       
     }
 }

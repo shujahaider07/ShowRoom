@@ -55,7 +55,7 @@ namespace Cars
             String qry = "insert into cars values('"+carnametxt.Text+"', '"+ Pricetxt.Text + "','"+modelnametxt.Text+"')" ;
             SqlCommand cmd = new SqlCommand(qry,sql);
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Inserted");
+            MessageBox.Show("Data Inserted");
 
            
 

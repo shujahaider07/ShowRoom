@@ -58,6 +58,12 @@
     <Compile Include="cars2.Designer.cs">
       <DependentUpon>cars2.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditRegistrationDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRegistrationDetail.Designer.cs">
+      <DependentUpon>EditRegistrationDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cars2.resx">
       <DependentUpon>cars2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRegistrationDetail.resx">
+      <DependentUpon>EditRegistrationDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

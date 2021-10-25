@@ -14,6 +14,19 @@ namespace Cars
     {
         public static String text1;
         public static String text2;
+
+        
+        
+
+        public static String text3;
+        public static String text4;
+        public static String text5;
+        public static String text6;
+        public static String text7;
+        public static String text8;
+        public static String text9;
+        public static String text10;
+       
        
         public cars()
         {
@@ -81,17 +94,15 @@ namespace Cars
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.CurrentRow.Selected = true;
-            text1 = dataGridView1.Rows[e.RowIndex].Cells["CarNamee"].Value.ToString();
-            text2 = dataGridView1.Rows[e.RowIndex].Cells["price"].Value.ToString();
+            text9= dataGridView1.Rows[e.RowIndex].Cells["CarNamee"].Value.ToString();
+            text10 = dataGridView1.Rows[e.RowIndex].Cells["price"].Value.ToString();
+
 
 
             registration r1 = new registration();
             r1.Show();
 
           
-
-
-
         }
 
 
@@ -125,8 +136,8 @@ namespace Cars
             registrationDetail rd = new registrationDetail();
             rd.Show();
         }
-    public void count()
-        {
+        public void count()
+           {
             sql.Open();
             string qry = "select count (carnamee) from cars";
             SqlCommand cmd = new SqlCommand(qry,sql);
